@@ -1,7 +1,7 @@
 Once we have more information on our project and our roles, we will fill out this readme accordingly!
 
-# Project Title
-Simple overview of use/purpose of application
+# ProcrastiNOT
+A powerful task management system provides users with an intuitive platform for organizing and completing tasks effortlessly
 
 ## Description
 An in-depth paragraph about our project and overview of it's use
