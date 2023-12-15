@@ -17,7 +17,7 @@ An in-depth paragraph about our project and overview of it's use
 * Any modifications needed to be made to files/folders to view or use application
 
 ## Help
-Any advise for common problems or issues
+Any advice for common problems or issues
 
 ## Authors
 Contributors names and contact info
