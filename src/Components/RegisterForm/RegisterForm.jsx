@@ -1,12 +1,12 @@
 import React from 'react'
-import './RegisterForm.css';
+import { Link } from 'react-router-dom';
 import { FaLock, FaUser } from "react-icons/fa";
-import { TfiEmail } from "react-icons/tfi";
+import { GrMailOption } from "react-icons/gr";
 
 const RegisterForm = () => {
     return (
         <div className="wrapper">
-            <form action="">
+            <form action="post">
                 <h1>Register</h1>
                 <div className="input-box">
                     <input type="text" placeholder='Username' required/>
@@ -15,7 +15,7 @@ const RegisterForm = () => {
 
                 <div className="input-box">
                     <input type="text" placeholder='Email' required/>
-                    <TfiEmail className='icon'/>
+                    <GrMailOption className='icon'/>
                 </div>
 
                 <div className="input-box">
@@ -29,6 +29,10 @@ const RegisterForm = () => {
                 </div>
 
                 <button type="submit">Register</button>
+
+                <div className="register-link">
+                    <p>Already have an account? <Link to="/login">Login!</Link></p>
+                </div>
             </form>
         </div>
     );

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './LoginForm.css';
+import './LoginForm.css'
 import { FaLock, FaUser } from "react-icons/fa";
 
 const LoginForm = () => {
     return (
         <div className="wrapper">
-            <form action="">
+            <form action="post">
                 <h1>Login</h1>
                 <div className="input-box">
                     <input type="text" placeholder='Username' required/>
