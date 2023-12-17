@@ -1,11 +1,13 @@
 
 import './App.css';
-// import Hello from './components/Hello.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './layout/Navbar.js';
-import Home from './pages/Home.js';
+import Navbar from './component/Navbar.js';
+import Home from './component/Home.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import AddTask from './tasks/AddTask.js';
+import Register from './component/Register.js';
+import LoginForm from './component/LoginForm.js';
+
 function App() {
   return (
   
@@ -16,12 +18,18 @@ function App() {
 
         <Routes>  
           <Route exact path="/" element={<Home />}/>
+          <Route exact path="/login" element={<LoginForm />}/>
+
+          <Route exact path="/component/register" element={<Register />}/>
           <Route exact path="/addTask" element={<AddTask />}/>
+
+
+          
+
+
           {/* <Route        />
           <Route        />
-          <Route        />
-          <Route        />
-          <Route        /> */}
+          <Route        /> */} 
 
         </Routes>
     </Router>
