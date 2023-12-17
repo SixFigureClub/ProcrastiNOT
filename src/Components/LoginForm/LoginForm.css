@@ -89,6 +89,7 @@
         box-sizing: border-box;
         width: 90%; 
         padding: 20px; 
+        
     }
 
     .wrapper h1 {
@@ -96,13 +97,16 @@
     }
 
     .input-box input {
-        box-sizing: border-box;
-        padding: 10px;
+        display: flex; /* Added flex display */
+        flex-direction: column; /* Stack icon on top of the input */
+        align-items: flex-start; /* Align items to the start */
+        margin-bottom: 10px;
         width: 100%;
     }
 
     .input-box {
         margin-bottom: 10px;
+        width: 100%;
     }
     .register-link {
         font-size: 14px;
@@ -116,7 +120,14 @@
     }
 
     .input-box input {
-        padding: 15px;
+        display: flex; /* Added flex display */
+        flex-direction: column; /* Stack icon on top of the input */
+        align-items: flex-start; /* Align items to the start */
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .input-box {
         width: 100%;
     }
 }
