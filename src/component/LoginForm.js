@@ -26,7 +26,7 @@ const LoginForm = () => {
                     {/* <FaLock className='icon'/> */}
                 </div>
 
-                <Link type="submit" to='/'>Login</Link>
+                <Link type="submit" to='/'>Log in</Link>
 
                 <div className="register-link">
                     <p>Don't have an account? <a href="/component/register">Register!</a></p>
