@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <div>
         {/* navbar navbar-dark bg-dark fixed-top */}
-<nav className="navbar navbar-expand-lg bg-dark navbar-dark bg-dark " >
+<nav className="navbar navbar-fixed-top-lg bg-dark navbar-dark bg-dark " >
   <div className="container-fluid">
     <a className="navbar-brand" href="#">ProcrastiNOT</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,21 +27,7 @@ export default function Navbar() {
         <li className="nav-item">
           <a className="nav-link" href="#">Register</a>
         </li>
-
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            All Filter
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Images</a></li>
-            <li><a className="dropdown-item" href="#">Places</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="#">Activities</a></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          {/* <a className="nav-link disabled" aria-disabled="true">Disabled</a> */}
-        </li>
+        
       </ul>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

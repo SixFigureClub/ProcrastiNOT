@@ -15,7 +15,7 @@ function App() {
         <Navbar />
 
         <Routes>  
-          <Route exact path="/" element={<Home />}/>
+          {/* <Route exact path="/" element={<Home />}/> */}
           <Route exact path="/addTask" element={<AddTask />}/>
           {/* <Route        />
           <Route        />

@@ -20,13 +20,13 @@ const [tasks, setTasks] = useState([]);
   return (
   <div className='container '>
     <div className='py-4'>
-
+nvm
     <table class="table bg-dark shadow table-secondary">
   <thead>
     <tr>
       <th scope="col">New Task</th>
       <th scope="col">In Progress</th>
-      <th scope="col">Complted</th>
+      <th scope="col">Complted</th>git
       <th scope="col">Action</th>
 
     </tr>
