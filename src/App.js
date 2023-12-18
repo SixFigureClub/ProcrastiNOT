@@ -24,11 +24,12 @@ function App() {
           <Route exact path="/addTask" element={<AddTask />}/>
 
 
+          {/* <Route   exact path="/addTask" element={<search />}     /> */}
+
           
 
 
           {/* <Route        />
-          <Route        />
           <Route        /> */} 
 
         </Routes>

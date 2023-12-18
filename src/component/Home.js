@@ -27,9 +27,9 @@ const [tasks, setTasks] = useState([]);
     <thead class="thead-dark">
     <tr>
       <th scope="col">New Task</th>
-      {/* <th scope="col">In Progress</th>
-      <th scope="col">Complted</th> */}
-      <th scope="col">Action</th>
+      <th scope="col">In Progress</th>
+      <th scope="col">Completed</th>
+            <th scope="col">Action</th>
 
     </tr>
 
@@ -42,15 +42,20 @@ const [tasks, setTasks] = useState([]);
       tasks.map((task, index)=>(
 <tr>
   <th className="row" key={index}>{index+1}</th>
-      <td>{task.newtask}</td>
-      <td>{task.Action}</td>
+      <td>{task.index}</td>
+      <td>{task.description}</td>
+      {/* <td>{task.completed}</td>
+      <td>{task.Action}</td> */}
    </tr>
     
     )
     )}
 
     <tr>
-      <td>Rina</td>
+      <td>Rina1</td>
+      <td>in progress</td>
+      <td>completed</td>
+
       
       <td>        
               <button className="btn btn-info mx-2">View</button>
