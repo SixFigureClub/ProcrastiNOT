@@ -143,7 +143,10 @@ const RegisterForm = () => {
           )}
         </div>
 
-        <button type="submit">Register</button>
+        {/* <button type="submit">Register</button> */}
+
+        <Link type="submit" className="btn btn-outline-light d-grid" data-bs-toggle="button" to='/login'>Register</Link>
+
 
         <div className="register-link">
           <p>

@@ -13,7 +13,7 @@ const HomePage = () => {
 
   return (
     <div className="logout-btn">
-      <LogoutButton onLogout={handleLogout} />
+      <LogoutButton  onLogout={handleLogout} />
     </div>
   );
 };

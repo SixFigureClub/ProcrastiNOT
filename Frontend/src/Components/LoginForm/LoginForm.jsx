@@ -137,7 +137,9 @@ const LoginForm = () => {
           </div>
         )}
 
-        <button type="submit">Login</button>
+        {/* <button type="submit">Login</button> */}
+        <Link type="submit" className="btn btn-outline-light d-grid"  to='/'>Login</Link>
+
 
         <div className="register-link">
           <p>
