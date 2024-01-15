@@ -1,39 +1,61 @@
-.logout-btn {
-    text-align: center;
-    margin-top: 50px;
+h1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    margin: 20px;
+    color: #fff;
+    font-size: 56px;
+    font-weight: bolder;
+    text-shadow: 6px 6px 4px rgba(0, 0, 0, .75);
+  }
+
+.TaskContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: min-content;  /* Adjust the width to accommodate all columns */
 }
-  
-  .column {
-    width: 300px;
+
+.column {
+    width: 270px;
     height: 700px;
+    word-wrap: break-word;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(30px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #fff;
     border-radius: 10px;
-    padding: 30px 40px;
+    padding: 8px 15px;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: left;
-    font-size: 18px;
-    font-weight: bolder;
     position: initial;
 }
 
-.TaskContainer {
+.column-container {
     display: flex;
     flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
     gap: 16px;
+    padding: 16px;
+    align-items: center;
 }
 
-.three-columns-container {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    justify-content: left;
+.column-name {
+    font-size: 20px;
+    font-weight: bolder;
+}
 
+.column-description {
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, .2); 
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 .modal-btn {
@@ -45,7 +67,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #fff;
     border-radius: 10px;
-    padding: 25px 25px;
+    padding: 80px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;

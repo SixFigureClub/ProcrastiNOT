@@ -60,9 +60,11 @@ const RegisterForm = () => {
         const serverErrors = error.response.data;
   
         if (serverErrors.error) {
+
           // Set error for password verification
           setErrors({ ...errors, verifyPassword: serverErrors.error });
         } else if (serverErrors.errors) {
+
           // Set detailed errors for each input field
           setErrors({
             username: serverErrors.errors.username,
@@ -83,6 +85,7 @@ const RegisterForm = () => {
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <h1>Register</h1>
+
         {/* Input field for username */}
         <div className="input-box" style={{ marginBottom: 'var(--error-margin-register)' }}>
           <input
@@ -94,6 +97,7 @@ const RegisterForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <FaUser className="icon" />
+
           {/* Display username error message if exists */}
           {errors.username && (
             <div className="error-message" ref={errorRef}>
@@ -113,6 +117,7 @@ const RegisterForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <GrMailOption className="icon" />
+
           {/* Display email error message if exists */}
           {errors.email && (
             <div className="error-message" ref={errorRef}>
@@ -132,6 +137,7 @@ const RegisterForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <FaLock className="icon" />
+
           {/* Display password error message if it exists */}
           {errors.password && (
             <div className="error-message" ref={errorRef}>
@@ -151,6 +157,7 @@ const RegisterForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <FaLock className="icon" />
+
           {/* Display password verification error message if exists */}
           {errors.verifyPassword && (
             <div className="error-message" ref={errorRef}>

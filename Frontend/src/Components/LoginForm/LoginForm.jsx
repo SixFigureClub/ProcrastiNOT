@@ -1,9 +1,11 @@
+// Import necessary dependencies and styles
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaLock, FaUser } from 'react-icons/fa';
 import axios from 'axios';
 import './LoginForm.css';
 
+// Define the LoginForm component
 const LoginForm = () => {
   // React hook to enable navigation
   const navigate = useNavigate();
@@ -54,51 +56,40 @@ const LoginForm = () => {
       setErrors({});
       navigate('/');
     } catch (error) {
+
       // Handle errors from the server response
       if (error.response && error.response.data && error.response.data.errors) {
-        const serverErrors = error.response.data.errors;
-
-        if (Array.isArray(serverErrors) && serverErrors.length > 0) {
-          // Handle specific field errors
-          const fieldErrors = {};
-          serverErrors.forEach((error) => {
-            fieldErrors[error.field] = error.defaultMessage;
-          });
-
-          // Check for specific error cases
-          if (fieldErrors.password) {
-            fieldErrors.password = 'Incorrect password';
-          } else if (fieldErrors.username) {
-            fieldErrors.general = '';
-          }
-
-          setErrors(fieldErrors);
-        } else if (typeof serverErrors === 'object') {
-          // Handle different response structure
-          const fieldErrors = {};
-          for (const field in serverErrors) {
-            fieldErrors[field] = serverErrors[field];
-          }
-
-          // Check for specific error cases
-          if (fieldErrors.password === 'Invalid password') {
-            fieldErrors.password = 'Incorrect password';
-          } else if (fieldErrors.username === 'The given username does not exist') {
-            fieldErrors.general = '';
-          }
-
-          setErrors(fieldErrors);
-        } else if (typeof serverErrors === 'string') {
-          // Handle general errors
-          setErrors({ general: serverErrors });
-        }
+        
+        // Extract and handle specific field errors from the server response
+        handleFieldErrors(error.response.data.errors);
       }
     }
+  };
+
+  // Function to handle specific field errors from the server response
+  const handleFieldErrors = (serverErrors) => {
+    // Initialize an object to store field errors
+    const fieldErrors = {};
+
+    // Iterate through server errors and map them to the corresponding fields
+    serverErrors.forEach((error) => {
+      fieldErrors[error.field] = error.defaultMessage;
+    });
+
+    // Check for specific error cases and update the state
+    if (fieldErrors.password) {
+      fieldErrors.password = 'Incorrect password';
+    } else if (fieldErrors.username) {
+      fieldErrors.general = '';
+    }
+
+    setErrors(fieldErrors);
   };
 
   // Render the login form
   return (
     <div className="wrapper">
+      {/* Login form */}
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
 
@@ -113,6 +104,7 @@ const LoginForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <FaUser className="icon" />
+
           {/* Display username-related errors */}
           {errors.username && (
             <div className="error-message" ref={errorRef}>
@@ -132,6 +124,7 @@ const LoginForm = () => {
             onChange={(e) => onInputChange(e)}
           />
           <FaLock className="icon" />
+
           {/* Display password-related errors */}
           {errors.password && (
             <div className="error-message" ref={errorRef}>
@@ -161,4 +154,5 @@ const LoginForm = () => {
   );
 };
 
+// Export the LoginForm component
 export default LoginForm;
