@@ -44,7 +44,7 @@ const LoginForm = () => {
       });
   
       setErrors({});
-      navigate('/');
+      navigate('/list');
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
         const serverErrors = error.response.data.errors;
@@ -137,8 +137,8 @@ const LoginForm = () => {
           </div>
         )}
 
-        {/* <button type="submit">Login</button> */}
-        <Link type="submit" className="btn btn-outline-light d-grid"  to='/'>Login</Link>
+        <button type="submit">Login</button>
+        {/* <Link type="submit" className="btn btn-outline-light d-grid"  to='/'>Login</Link> */}
 
 
         <div className="register-link">

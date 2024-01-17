@@ -15,8 +15,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgba(149, 150, 227, 0.969);
-  /* background: url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat; */
+  background-color: black;
+  /* background:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat; */
+  
+  /* background-image:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat; */
   background-size: cover;
   background-position: center;
 }
@@ -25,3 +27,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
