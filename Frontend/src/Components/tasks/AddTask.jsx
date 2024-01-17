@@ -10,17 +10,21 @@ import { Link } from 'react-router-dom';
 export default function AddTask() {
 
 
-    
-// const [first, setfirst] = useState(" ")
-
-
 
    let navigate = useNavigate()
 
-        const [task, setTask] = useState("")
+        const [task, setTask] = useState({
+          id: 0,
+          description: ""
+
+        })
+
+        const tasks = task;
         
         const onInputChange=(e)=>{
-          setTask({...task, [e.target.description]:e.target.value});
+          // setTask(e.target.value);
+          setTask({...task, [e.target.id]:e.target.value});
+
 
 
           };
@@ -30,42 +34,61 @@ export default function AddTask() {
             e.preventDefault();
 
           //  console.log(task);
+        setTask(task);
 
-          try{
-            await axios.post("http://localhost:8080/task",task) 
 
-          }
-catch(e){
 
-    console.log(e);
-}
+           try{
+            await axios.post("http://localhost:8080/login/task/add",task,{
+            // )
+            //  {
 
- navigate("/")
+     headers:{ "content-type": "application/json"},
+             withCredentials:true,
+    
+
+             });
+    
+
+             }
+             catch(e){
+
+     console.log(e);
+ }
+
+ navigate("/list")
 
 
         //  AddTodo(task);
-          setTask("")
+          // setTask("")
         
         
         };
 
 
   return (
-    <div>
+    
         
-<h1>Log your Task</h1>
+      <div className='container'>
+      <h1>New Task!</h1>
+       {/* <div className='row'> */}
 
+        {/* <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'> */}
+    
 
-           {/* <input type="text" name="description" placeholder="try typing" onChange={(e) => onInputChange(e)} /> */}
            <form onSubmit={handleSubmit}>
-<input type="text" name="description" placeholder="try typing" onChange={(e) => onInputChange(e)} />
+<input className='form-control' type="text" name="task"  placeholder="try typing" onChange={(e) => onInputChange(e)} />
 
-<button className="btn btn-primary" type="submit">Add Task</button>
+<button className="btn btn-outline-primary"  type="submit">Add Task</button>
+{/* <Link className="btn btn-outline-primary" to='/' type="submit">Add Task</Link> */}
+
+
+<Link className="btn btn-outline-danger mx-3" to="/">Cancel</Link>
+
 
 </form>
-
-
-
-    </div>
+</div>
+// </div>
+    // </div>
   )
 }
