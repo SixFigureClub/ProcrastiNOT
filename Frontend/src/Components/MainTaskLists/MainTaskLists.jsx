@@ -18,7 +18,7 @@ const MainTaskLists = ({data}) => {
             {/* render column children here (new tasks) */}
           </div>
         )
-      })}  
+      })};  
     </div>
   );
 };

@@ -4,7 +4,7 @@ import LogoutButton from './LogoutButton';
 import MainTaskLists from '../MainTaskLists/MainTaskLists';
 import Modal from '../Modal';
 
-// Initial data for the three initial task lists that are always rendered
+// Data for the three initial task lists that are always rendered on the home page
 const initialColumns = [  
   {
     name: "New Tasks",
@@ -61,7 +61,7 @@ const HomePage = () => {
     // Render the three columns within a container
     return (
       <div className="home-page-container">
-        <h1>ProcrastiNOT</h1>
+        <h1 className="procrastinot">ProcrastiNOT</h1>
         <div className="column-container">
                 <MainTaskLists data={cols} />
                 <AddNewColumn addColumn={addColumn}/>

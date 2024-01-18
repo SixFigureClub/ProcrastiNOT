@@ -1,12 +1,11 @@
-h1 {
+.procrastinot {
     position: absolute;
     top: 0;
-    left: 20px;
     margin: 20px;
     color: #fff;
     font-size: 56px;
     font-weight: bolder;
-    text-shadow: 6px 6px 4px rgba(0, 0, 0, .75);
+    text-shadow: 6px 6px 4px rgba(0, 0, 0, 0.75);
   }
 
 .TaskContainer {
@@ -55,7 +54,7 @@ h1 {
     margin-bottom: 10px;
     border-bottom: 2px solid rgba(255, 255, 255, .2); 
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 
 .modal-btn {
