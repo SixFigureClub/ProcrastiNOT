@@ -1,3 +1,5 @@
+/* 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 * {
@@ -7,6 +9,7 @@
 }
 
 body {
+
   margin: 0;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,10 +18,9 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: black;
-  /* background:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat; */
-  
-  /* background-image:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat; */
+  background-color: rgb(229, 139, 14);
+  background:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat;
+
   background-size: cover;
   background-position: center;
 }
@@ -28,4 +30,8 @@ code {
     monospace;
 }
 
+ */
+body{
+  background:  url('./Components/Assets/abstarct-dark-color-mixiture-splashes.jpg') no-repeat;
 
+}
