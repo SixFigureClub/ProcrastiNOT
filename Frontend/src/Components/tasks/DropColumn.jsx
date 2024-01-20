@@ -5,35 +5,32 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 // import {v4 as uuidv4} from 'uuid';
 import TaskList from "./TaskList";
 import {v4 as uuid} from 'uuid'
+import { Link } from 'react-router-dom';
+
 
 const itemsFromBackend = [
 
-  { id: uuid(), content: "Task No 1" },
-  { id: uuid(), content: "Task No 2" },
-  { id: uuid(), content: "Task No 3" },
-  { id: uuid(), content: "Task No 4" },
-  { id: uuid(), content: "Task No 5" },
-  { id: uuid(), content: "Task No 6" }
+  { id: uuid(), content: "Happy Day" },
+  { id: uuid(), content: "Graduation Party" },
+  { id: uuid(), content: "Learning Web Development" },
+  { id: uuid(), content: "Front-End Programmer" },
+  { id: uuid(), content: "Student Graduation" },
+  { id: uuid(), content: "Jr. Programmer" }
 
 ];
-
-
 
 const columnsFromBackend = {
   [uuid()]: {
     name: "New Task",
     items: itemsFromBackend
   },
-  [uuid()]: {
-    name: "To do",
-    items: []
-  },
+  
   [uuid()]: {
     name: "In Progress",
     items: []
   },
   [uuid()]: {
-    name: "Done",
+    name: "Completed",
     items: []
   }
 };
@@ -81,6 +78,9 @@ function DropColumn() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+
+<Link to="/list" className='btn btn-warning brn-lg float-end'>Back</Link>
+
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
