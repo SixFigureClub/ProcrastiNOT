@@ -5,27 +5,22 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
-
 export default function AddTask() {
-
-
 
    let navigate = useNavigate()
 
         const [task, setTask] = useState({
-          id: 0,
           description: ""
 
         })
 
-        const tasks = task;
+        const data = {
+          name: task.description
+        };
         
         const onInputChange=(e)=>{
-          // setTask(e.target.value);
-          setTask({...task, [e.target.id]:e.target.value});
-
-
+          e.persist();
+          setTask({...task, [e.target.name]:e.target.value});
 
           };
            
@@ -33,34 +28,22 @@ export default function AddTask() {
         const handleSubmit = async(e) => {
             e.preventDefault();
 
-          //  console.log(task);
-        setTask(task);
+           console.log(task);
+            setTask(task);
+
+      const data = {name:task.description};
+
+ await axios.post("http://localhost:8080/login/task/add",task).then(res => {
+
+  console.log(res);
+  
+  alert(res.data.message);
 
 
+ });
 
-           try{
-            await axios.post("http://localhost:8080/login/task/add",task,{
-            // )
-            //  {
-
-     headers:{ "content-type": "application/json"},
-             withCredentials:true,
-    
-
-             });
-    
-
-             }
-             catch(e){
-
-     console.log(e);
- }
 
  navigate("/list")
-
-
-        //  AddTodo(task);
-          // setTask("")
         
         
         };
@@ -68,27 +51,37 @@ export default function AddTask() {
 
   return (
     
-        
-      <div className='container'>
-      <h1>New Task!</h1>
-       {/* <div className='row'> */}
 
-        {/* <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'> */}
-    
+<div className='container mt-5'>
+<div className='row'>
+<div className='col-md-12'>
+<div className='card'>
+<div className='card-header'>
+  <h2> Add Task  
+  <Link to="/list" className='btn btn-warning brn-lg float-end'>Back</Link>
+</h2>
 
-           <form onSubmit={handleSubmit}>
-<input className='form-control' type="text" name="task"  placeholder="try typing" onChange={(e) => onInputChange(e)} />
-
-<button className="btn btn-outline-primary"  type="submit">Add Task</button>
-{/* <Link className="btn btn-outline-primary" to='/' type="submit">Add Task</Link> */}
-
-
-<Link className="btn btn-outline-danger mx-3" to="/">Cancel</Link>
-
-
-</form>
 </div>
-// </div>
-    // </div>
+<div className='card-body'>
+
+          <form onSubmit={handleSubmit}>
+            <div className='mb-3'>
+ <input className='form-control' type="text" name="description"  value={task.description} placeholder="try typing" onChange={(e) => onInputChange(e)} />
+
+ <button className="btn btn-outline-primary"  type="submit">Save Task</button>
+
+</div>
+
+ </form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
   )
 }

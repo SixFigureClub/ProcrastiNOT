@@ -8,22 +8,16 @@ import { Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
         const TaskList = () => {
 
           let navigate = useNavigate()
 
-  
-       
-
           const [tasks, setTasks] = useState([]);
-      // const [description, setfirst] = useState(second)
           
           const {id} = useParams()
           
               useEffect(()=>{
-                console.log("Coding with Rina");
+                // console.log("Coding with Rina");
                 loadTasks();
 
               }, [])
@@ -31,76 +25,77 @@ import { useNavigate } from 'react-router-dom';
               const loadTasks=async()=>{
           
                     const results =await axios.get("http://localhost:8080/login/task/alltasks")
-                    //  console.log(results.data);
+
+                      console.log(results.data);
                       setTasks(results.data)
           
               };
+
           
               //Delete Function
           
               const deleteTask =async(id)=>{
           
                 await axios.delete(`http://localhost:8080/login/task/${id}`)
-                //  console.log(results.data);
-                //   setTasks(results.data)
+                
                   setTasks(deleteTask.data)
 
 
                   loadTasks()
           
           };
-        //   navigate('/list');
 
     
             
         
 return (
 
-
-    <div>
-          <h1>Task List</h1>
-          
-  <div className='container '>
-
-
-    <div className='welcome'>
-  <div className='py-4'>
-
-         
-      <ul className='card'>
-
-         {tasks.map((tasks,id) =>(
-
-
-        //  <input type="radio" name="tasks" th:value="${job.id}">
-
-           <li key={id}>{tasks.description}
-           
-           {/* <button className="btn btn-info mx-2">View</button> */}
-              <Link className="btn btn-outline-primary mx-2" to={`/edit/${tasks.id}`}>Edit</Link>
-              <button className="btn btn-danger mx-2" onClick={()=> deleteTask(tasks.id)}>Delete</button>
-
-
-
-
-           
-           </li>
-
-
-         ))}
-       </ul>
-       
-
-
-          
-
-<Link type="submit" className="btn btn-primarybtn-outline-light d-grid" data-bs-toggle="button" to='/addtask'>Add Task</Link>
+      
+      
+<div className='container mt-5'>
+<div className='row'>
+<div className='col-md-12'>
+<div className='card'>
+<div className='card-header'>
+  <h2>Task List 
+  <Link to="/addtask" className='btn btn-success float-end'>Add Task</Link>
+</h2>
 
 </div>
+<div className='card-body'>
+  <table className='table table-striped'>
+
+    <thead>
+      </thead>
+
+    <tbody>
+
+              {tasks.map((tasks, id) =>(
+                <tr key={id}>  
+
+        <td >{tasks.description}</td>
+
+        <td> <Link className="btn btn-secondary mx-2" to='/action'>Action</Link> </td>
+       <td> <Link className="btn btn-outline-primary mx-2" to={`/task/${tasks.id}`}>Edit</Link> </td>
+      <td> <button className="btn btn-danger mx-2" onClick={()=> deleteTask(tasks.id)}>Delete</button></td>
+        
+     </tr>
+
+     
+      ))}
+    </tbody>
+
+  </table>
+
 </div>
+
 </div>
-      </div>      
- );
+
+</div>
+
+</div>
+    </div>  
+ )
 
 }
 
