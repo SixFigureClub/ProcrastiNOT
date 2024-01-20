@@ -14,37 +14,44 @@ import Search from './Components/Search'
 import TaskList from './Components/tasks/TaskList';
 import EditTask from './Components/tasks/EditTask';
 import DropColumn from './Components/tasks/DropColumn'
-
+import MainTaskLists from './Components/MainTaskList/MainTaskList';
+import Carousel from './Components/tasks/Carousel';
+import Testing from './Components/tasks/Testing';
 
 
 function App() {
   
+
+
   return (
+
 
 
     <Router>
 
-<NavBar />
+{/* <NavBar /> */}
 
-
-      <Routes>
+       <Routes>
 
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
+         <Route path="/login" element={<LoginForm />} />
+              <Route path="/register" element={<RegisterForm />} />
         <Route  path="/list" element={<TaskList />} />
+         {/* Don't use HomePage component */}
+         <Route path="/addtask" element={<AddTask />} />
+         <Route path='/task/:id' element={<EditTask />} />
+         <Route path="/action" element={<DropColumn />} />
+         {/* <Route path="/search" element={<Search />} /> */}
+         {/* <Route path="/tasklist" element={<MainTaskLists />} /> */}
+         <Route path="/search" element={<Search />} />
+         <Route path="/alert" element={<Carousel />} />
+         <Route path="/modal" element={<MainTaskLists />} />
+         <Route path="/test" element={<Testing />} />
 
 
-        {/* Don't use HomePage component */}
-        <Route path="/addtask" element={<AddTask />} />
-        <Route path='/task/:id' element={<EditTask />} />
-        <Route path="/action" element={<DropColumn />} />
-        <Route path="/search" element={<Search />} />
+       </Routes>
+     </Router>
 
-
-
-      </Routes>
-    </Router>
   );
 }
 
