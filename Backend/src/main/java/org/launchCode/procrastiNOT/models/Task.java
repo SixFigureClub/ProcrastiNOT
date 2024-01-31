@@ -12,10 +12,7 @@ import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
-public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Task extends AbstractEntity{
 
     @NotNull
     @NotBlank
@@ -29,9 +26,6 @@ public class Task {
         this.description = description;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getDescription() {
         return description;
@@ -50,11 +44,12 @@ public class Task {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Task task)) return false;
-        return id == task.id && Objects.equals(description, task.description);
+        if (!super.equals(o)) return false;
+        return Objects.equals(description, task.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description);
+        return Objects.hash(super.hashCode(), description);
     }
 }

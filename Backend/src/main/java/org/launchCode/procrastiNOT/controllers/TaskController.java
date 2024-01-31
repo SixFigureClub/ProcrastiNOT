@@ -2,7 +2,7 @@
 package org.launchCode.procrastiNOT.controllers;
 import jakarta.validation.Valid;
 import org.launchCode.procrastiNOT.data.TaskRepository;
-//import org.launchCode.procrastiNOT.models.Job;
+//import org.launchCode.procrastiNOT.models.Junk;
 import org.launchCode.procrastiNOT.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +11,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -78,56 +79,9 @@ public String index (Model model){
 
 
 
-/*
-    @PostMapping("edit/{id}")
-    public String displayViewTask(@ModelAttribute Model model,@Valid Task newTask, Errors errors, @RequestParam(required = false) List<Integer>  taskIds) {
-
-       if (taskIds !=null) {
-           List<Task> selectedTask = (List<Task>) taskRepository.findAllById(taskIds);
-           Job job = new Job();
-           job.setTasks(selectedTask);
-       }
-            if(errors.hasErrors()){
-                System.out.println(errors.getAllErrors());
-       List<Task> tasks = (List<Task>) taskRepository.findAll();
-
-                return "update";
-            }
-            else {
-                taskRepository.save(newTask);
-                model.addAttribute("tasks", taskRepository.findAll());// passing task object's values
-
-
-                return "redirect:/";
-            }
-//
-//   //        }
-//            return "update";
-//
-//        } else {
-//
-//              model.addAttribute("tasks", taskRepository.findAll());// Optional code
-//
-//            return "redirect:/";
-
-//        }
-
-    }
-*/
-//    @GetMapping("edit/{id}")
-//    public String DisplayUpdateForm(@PathVariable("id") long id, @Valid Task newTask,
-//                                    Model model) {
-//        if (result.hasErrors()) {
-//            task.setId(id);
-//            return "update";
-//        }
-//        taskRepository.save(newTask);
-//        model.addAttribute("task", studentRepository.findAll());
-//        return "index";
-//    }
 
     @GetMapping("/delete")
-    public String renderDeleteArtForm(Model model) {
+    public String renderDeleteTaskForm(Model model) {
         model.addAttribute("jobs", taskRepository.findAll());
         return "delete";
     }
@@ -139,5 +93,30 @@ public String index (Model model){
         }
         return "redirect:/";
     }
+
+
+
+
+    @GetMapping("view/{taskId}")// Individual task display
+    public String displayViewTask(Model model, @PathVariable int taskId) {
+        // @RequestParam(required = false)
+        // if (taskId !=null) {
+
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        if (optionalTask.isPresent()) {
+            Task task = (Task) optionalTask.get();
+            model.addAttribute("task", task);//pass task Object as a  value
+
+            //       }
+
+            return "tasks/view";
+
+        } else {
+
+            return "redirect:../";
+
+        }
+    }
+
 
 }
