@@ -93,7 +93,9 @@ const LoginForm = () => {
   };
 
   return (
+    <div className='container mt-25'>
     <div className="wrapper">
+
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
 
@@ -148,6 +150,7 @@ const LoginForm = () => {
         </div>
       </form>
     </div>
+     </div>
   );
 };
 

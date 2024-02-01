@@ -77,27 +77,26 @@ import { Link } from 'react-router-dom';
 
   export default function EditTask () {
 
-   let navigate = useNavigate()
+     let navigate = useNavigate()
 
-   const {id} = useParams();
+      const {id} = useParams();
 
-        const [task, setTask] = useState("")
-       
+        const [task, setTask] = useState("")  
 
         const onInputChange=(e)=>{
           setTask({...task, [e.target.name]:e.target.value});
           };
           
-useEffect (() => {loadTasks()}, [])
+      useEffect (() => {loadTasks()}, [])
         
 
         const handleSubmit = async(e) => {
             e.preventDefault();
 
 
- await axios.put(`http://localhost:8080/login/task/${id}`,task) 
+          await axios.put(`http://localhost:8080/login/task/${id}`,task) 
 
- navigate("/list")        
+          navigate("/list")        
       
         };
 
@@ -112,6 +111,8 @@ useEffect (() => {loadTasks()}, [])
           
 
       <div className='container mt-5'>
+        <a className="navbar-brand float-end" href="/login">LogoutButton</a>
+
       <div className='row'>
       <div className='col-md-12'>
       <div className='card'>
@@ -127,7 +128,7 @@ useEffect (() => {loadTasks()}, [])
                   <div className='mb-3'>
       <input className='form-control' type="text" name="description"  value={task.description}  onChange={(e) => onInputChange(e)} />
 
-      <button className="btn btn-outline-primary"  type="submit">Update Task</button>
+      <button className="btn btn-outline-primary mt-3"  type="submit">Update Task</button>
 
       </div>
 

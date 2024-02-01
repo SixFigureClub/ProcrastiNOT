@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 // import uuid from "uuid/v4";
 // import {v4 as uuidv4} from 'uuid';
-import TaskList from "./TaskList";
 import {v4 as uuid} from 'uuid'
 import { Link } from 'react-router-dom';
-
+import TaskLists from "./TaskLists";
 
 const itemsFromBackend = [
 
@@ -15,13 +14,14 @@ const itemsFromBackend = [
   { id: uuid(), content: "Learning Web Development" },
   { id: uuid(), content: "Front-End Programmer" },
   { id: uuid(), content: "Student Graduation" },
-  { id: uuid(), content: "Jr. Programmer" }
+  { id: uuid(), content: "Testing Api" },
+  { id: uuid(), content: "Selenium Automation Testing" }
 
 ];
 
 const columnsFromBackend = {
   [uuid()]: {
-    name: "New Task",
+    name: "Task To-Do",
     items: itemsFromBackend
   },
   
@@ -77,6 +77,11 @@ function DropColumn() {
 
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
+<>
+
+
+<div className='container mt-5'>
+    <a className="navbar-brand float-end" href="/login">LogoutButton</a>
     <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
 
 <Link to="/list" className='btn btn-warning brn-lg float-end'>Back</Link>
@@ -86,6 +91,7 @@ function DropColumn() {
       >
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
+            
             <div
               style={{
                 display: "flex",
@@ -154,6 +160,8 @@ function DropColumn() {
         })}
       </DragDropContext>
     </div>
+    </div>
+    </>
   );
 }
 

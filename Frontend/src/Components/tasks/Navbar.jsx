@@ -7,8 +7,10 @@ export default function Navbar() {
             // <nav className="nav flex-column">
           
   
-        <nav className="navbar navbar-expand navbar-dark bg-dark fixed-top justify-center flex-column">
-      <div className="container-fluid">
+        // <nav className="navbar navbar-expand navbar-dark bg-dark fixed-top justify-center flex-column">
+          <nav className="page-header" class="navbar navbar-inverse navbar-fixed-top justify-content-center">
+
+      <div className="container">
       <a className="navbar-brand" href="/login">ProcratiNOT</a>
 
       {/* <a className="navbar-brand" href="/login">LogoutButton</a> */}
