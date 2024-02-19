@@ -7,10 +7,10 @@
 // async function emailVerification() {
 //     const ZeroBounceSDK = require('@zerobounce/zero-bounce-sdk')
 //     const zeroBounce = new ZeroBounceSDK();
-//     zeroBounce.init("9a2629c2e27e4af59f08e4a2ca959991");
+//     zeroBounce.init(apiKey);
 
 
-//     const url = 'https://zerobounce1.p.rapidapi.com/v2/validate?api_key=9a2629c2e27e4af59f08e4a2ca959991&email=valid@example.com';
+//     const url = 'https://zerobounce1.p.rapidapi.com/v2/validate?api_key=${apiKey}&email=valid@example.com';
 //     const options = {
 //         method: 'GET',
 //         headers: {
