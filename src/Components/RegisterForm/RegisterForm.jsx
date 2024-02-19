@@ -17,7 +17,7 @@ function RegisterForm() {
   const ZeroBounceSDK = require('@zerobounce/zero-bounce-sdk')
 
   const zeroBounce = new ZeroBounceSDK();
-  zeroBounce.init("9a2629c2e27e4af59f08e4a2ca959991");
+  zeroBounce.init("<INSERT_YOUR_API_KEY>");
 
 // where data from reg. form is fetched
   useEffect(() => {
@@ -59,7 +59,7 @@ function RegisterForm() {
 // const validEmail = async() =>{
 //   const ZeroBounceSDK = require("@zerobounce/zero-bounce-sdk");
 //   const zeroBounce = new ZeroBounceSDK();
-//   zeroBounce.init("9a2629c2e27e4af59f08e4a2ca959991");
+//   zeroBounce.init(apiKey);
 //   emailVerification(email);
 // };
 
