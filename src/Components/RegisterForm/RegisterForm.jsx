@@ -8,12 +8,12 @@ import emailVerification from '../EmailVerification';
 import ZeroBounceApi from '../ZeroBounceApi/ZeroBounceApi';
 import App from '../../App';
 // import fetch from 'node-fetch';
-const apiKey = "9a2629c2e27e4af59f08e4a2ca959991";
+const apiKey = "";
 
 function RegisterForm() {
   const navigate = useNavigate();
 
-  // ZeroBounceApi.init("9a2629c2e27e4af59f08e4a2ca959991");
+  // ZeroBounceApi.init(apiKey);
   const ZeroBounceSDK = require('@zerobounce/zero-bounce-sdk')
 
   const zeroBounce = new ZeroBounceSDK();
