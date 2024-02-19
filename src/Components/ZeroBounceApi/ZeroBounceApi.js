@@ -1,10 +1,10 @@
-const apiKey = "9a2629c2e27e4af59f08e4a2ca959991";
+const apiKey = "";
 class ZeroBounceApi {
     constructor(apiKey){
         var baseUrl = "https://api.zerobounce.net/v2";
         var get = new XMLHttpRequest();
         /**
-         * @param apiKey - your private API key 9a2629c2e27e4af59f08e4a2ca959991
+         * @param apiKey - your private API key -----------------------
          * */
         this.apiKey = apiKey;
 
