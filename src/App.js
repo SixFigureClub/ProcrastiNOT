@@ -2,11 +2,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginForm from './Components/LoginForm/LoginForm';
 import RegisterForm from './Components/RegisterForm/RegisterForm';
 import HomePage from './Components/HomePage/HomePage';
-
+import emailVerification from './Components/EmailVerification';
 
 
 function App() {
-  
+          
+// emailVerification();
+ 
   return (
 
     <Router>
